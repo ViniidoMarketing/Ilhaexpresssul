@@ -3,242 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dexter Esportes | Elite Performance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Ilha Express Sul | Entregas Rápidas e Seguras</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --verde-deep: #003d23;
-            --verde-claro: #1a5c3d;
-            --verde-lima: #32CD32;
-            --dourado: #D4AF37;
-            --dourado-glow: 0 0 25px rgba(212, 175, 55, 0.6);
+            --azul-mar: #0077b6;
+            --laranja-solar: #ff8c00;
             --branco: #ffffff;
-            --gelo: #f8f9fa;
-            --preto-glass: rgba(0, 0, 0, 0.9);
+            --escuro: #333333;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--gelo);
-            /* Borda sombreada dourada nas laterais do site para ar de elite */
-            box-shadow: inset 0 0 50px var(--dourado-glow);
-            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--escuro);
+            background-color: #f4f7f6;
         }
 
-        /* --- Header com Menu --- */
+        /* --- Header & Navigation --- */
         header {
-            background: var(--preto-glass);
-            backdrop-filter: blur(15px);
-            padding: 15px 5%;
+            background: var(--branco);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--dourado);
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 2000;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .logo {
-            font-weight: 900;
+        .logo-text {
+            font-weight: 700;
             font-size: 1.5rem;
-            color: var(--branco);
-            text-transform: uppercase;
-            text-decoration: none;
-            letter-spacing: 1px;
+            color: var(--azul-mar);
         }
 
-        .logo span { color: var(--dourado); }
+        .logo-text span { color: var(--laranja-solar); }
 
-        nav ul { 
-            display: flex; 
-            list-style: none; 
-            align-items: center;
-        }
-        
-        nav ul li { margin-left: 20px; }
-        
-        nav ul li a {
-            color: var(--branco);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        nav ul li a:hover { color: var(--dourado); }
-        
-        /* Linha decorativa no hover do menu */
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--dourado);
-            transition: 0.3s;
-        }
-        nav ul li a:hover::after { width: 100%; }
-
-        .btn-contato-nav {
-            background: var(--dourado);
-            color: black !important;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .btn-contato-nav:hover {
-            background: var(--branco);
-            box-shadow: 0 0 15px var(--dourado);
-        }
-
-        /* --- Hero --- */
+        /* --- Banner Principal --- */
         .hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1920') no-repeat center center/cover;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        urlurl('banner.jpg')no-repeat center center/cover;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            margin-top: 60px;
-            border-bottom: 5px solid var(--dourado);
-        }
-
-        .hero h1 { font-size: 3.5rem; color: var(--branco); font-weight: 900; }
-        .hero h1 span { color: var(--dourado); }
-
-        /* --- Categorias --- */
-        section.categoria {
-            padding: 80px 5%;
-            margin: 30px auto;
-            max-width: 1400px;
-            background: var(--branco);
-            border: 1px solid var(--dourado);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border-radius: 15px;
-        }
-
-        .section-header {
-            display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 { font-size: 2rem; text-transform: uppercase; color: var(--verde-deep); }
-        .section-header h2 span { color: var(--dourado); }
-        .line { height: 2px; background: var(--dourado); flex-grow: 1; }
-
-        .grid-produtos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* --- Card --- */
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            border: 1px solid #eee;
-            transition: 0.4s;
-            display: flex;
-            flex-direction: column;
             text-align: center;
+            color: white;
+            padding-top: 80px;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--dourado-glow);
-            border-color: var(--dourado);
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .img-box {
-            height: 250px;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            background: #f9f9f9;
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-style: italic;
         }
 
-        .img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .card:hover .img-box img { transform: scale(1.1); }
-
-        .btn-360 {
-            display: inline-block;
-            margin-bottom: 15px;
-            font-size: 0.8rem;
-            color: var(--verde-deep);
-            text-decoration: none;
-            font-weight: 900;
-            border: 2px solid var(--dourado);
-            padding: 8px;
+        /* --- Botões --- */
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            padding: 15px 30px;
             border-radius: 50px;
-            transition: 0.3s;
-        }
-
-        .btn-360:hover { background: var(--dourado); color: white; }
-
-        .preco { font-size: 1.5rem; font-weight: 900; color: var(--verde-claro); margin: 10px 0; }
-
-        .btn-comprar {
-            background: #25d366;
-            color: white;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: 0.3s;
-            margin-top: auto;
-        }
-        .btn-comprar:hover { background: #128c7e; transform: scale(1.02); }
-
-        /* --- Floating WhatsApp --- */
-        .wpp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 35px;
-            z-index: 3000;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.05);
+            background-color: #128c7e;
+        }
+
+        /* --- Serviços & Agendamento --- */
+        .services {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
-        .wpp-btn:hover { transform: scale(1.1); }
 
-        footer {
-            background: var(--verde-deep);
+        .service-card i {
+            font-size: 3rem;
+            color: var(--azul-mar);
+            margin-bottom: 20px;
+        }
+
+        /* --- Tabela de Agenda Simples --- */
+        .schedule {
+            background: var(--azul-mar);
             color: white;
-            padding: 60px 5% 30px;
+            padding: 60px 10%;
             text-align: center;
-            border-top: 5px solid var(--dourado);
+        }
+
+        .schedule-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 40px;
         }
 
         @media (max-width: 768px) {
-            nav ul { display: none; } /* Simplicidade no mobile */
             .hero h1 { font-size: 2.2rem; }
         }
     </style>
@@ -246,107 +162,80 @@
 <body>
 
     <header>
-        <a href="#" class="logo">DEXTER <span>ESPORTES</span></a>
+        <div class="logo-text">ILHA EXPRESS <span>SUL</span></div>
         <nav>
-            <ul>
-                <li><a href="#tenis">Tênis</a></li>
-                <li><a href="#fit">Roupas Fit</a></li>
-                <li><a href="#bolas">Bolas</a></li>
-                <li><a href="https://wa.me/5548988146267" class="btn-contato-nav">Contato</a></li>
-            </ul>
+            <a href="https://wa.me/+55 48 8444-0056 class="btn-whatsapp" style="padding: 8px 20px; font-size: 0.9rem;">
+                <i class="fab fa-whatsapp"></i> Chamar agora
+            </a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>SOMOS A <span>DEXTER</span></h1>
-        <p style="color: white; letter-spacing: 3px; font-weight: 400; text-transform: uppercase;">A elite da performance esportiva</p>
+        <h1>Ilha Express Sul</h1>
+        <p>"Rápido como o vento da ilha"</p>
+        <a href="https://wa.me/+55 48 8444-0056?text=Olá! Gostaria de agendar uma entrega." class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> AGENDAR ENTREGA
+        </a>
     </section>
 
-    <section class="categoria" id="tenis">
-        <div class="section-header">
-            <h2>Elite <span>Footwear</span></h2>
-            <div class="line"></div>
-        </div>
-        <div class="grid-produtos">
-            <div class="card">
-                <div class="img-box"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Speed Runner"></div>
-                <h3>Speed Runner Red</h3>
-                <a href="https://www.google.com/search?q=360+view+sneaker" target="_blank" class="btn-360"><i class="fas fa-sync-alt"></i> VER EM 360°</a>
-                <span class="preco">R$ 549,90</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">COMPRAR AGORA</a>
+    <section class="services">
+        <h2>Por que nos escolher?</h2>
+        <div class="grid-services">
+            <div class="service-card">
+                <i class="fas fa-bicycle"></i>
+                <h3>Sustentabilidade</h3>
+                <p>Entregas feitas de bike, sem emissão de CO2 e com agilidade no trânsito.</p>
             </div>
-            <div class="card">
-                <div class="img-box"><img src="https://files.oaiusercontent.com/file-K1Xm6uL0Yv5K7XvN2K4R2C?se=2024-05-23T15%3A20%3A00Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D31536000%2C%20immutable&rscd=attachment%3B%20filename%3Dstrike_control_green.webp&sig=F2XJp9P1q6zU5o3K7XvN2K4R2C0%3D" alt="Strike Control Green"></div>
-                <h3>Strike Control Green</h3>
-                <a href="https://www.google.com/search?q=360+view+green+sneaker" target="_blank" class="btn-360"><i class="fas fa-sync-alt"></i> VER EM 360°</a>
-                <span class="preco">R$ 429,00</span>
-                <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">COMPRAR AGORA</a>
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Segurança</h3>
+                <p>Seu pacote é transportado com o máximo cuidado e responsabilidade.</p>
             </div>
-            <script>
-                for(let i=3; i<=9; i++) {
-                    document.write(`
-                    <div class="card">
-                        <div class="img-box"><img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=600" alt="Tênis"></div>
-                        <h3>Dexter Elite Model v${i}</h3>
-                        <a href="#" class="btn-360"><i class="fas fa-sync-alt"></i> VER EM 360°</a>
-                        <span class="preco">R$ 499,00</span>
-                        <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">COMPRAR AGORA</a>
-                    </div>`);
-                }
-            </script>
+            <div class="service-card">
+                <i class="fas fa-clock"></i>
+                <h3>Rapidez</h3>
+                <p>Conhecemos cada atalho da ilha para garantir que chegue no prazo.</p>
+            </div>
         </div>
     </section>
 
-    <section class="categoria" id="fit">
-        <div class="section-header">
-            <h2>Roupas <span>Fit & Gym</span></h2>
-            <div class="line"></div>
-        </div>
-        <div class="grid-produtos">
-            <script>
-                for(let i=1; i<=9; i++) {
-                    document.write(`
-                    <div class="card">
-                        <div class="img-box"><img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?w=600" alt="Roupa Fit"></div>
-                        <h3>Conjunto Dexter Fit ${i}</h3>
-                        <a href="#" class="btn-360"><i class="fas fa-sync-alt"></i> DETALHES 360°</a>
-                        <span class="preco">R$ 189,90</span>
-                        <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">COMPRAR AGORA</a>
-                    </div>`);
-                }
-            </script>
-        </div>
+    <section class="schedule">
+        <h2>Nossa Agenda de Atendimento</h2>
+        <p>Escolha o melhor horário e nos chame no zap!</p>
+        <table class="schedule-table">
+            <thead>
+                <tr>
+                    <th>Dias</th>
+                    <th>Horário</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Segunda a Sexta</td>
+                    <td>08:00 - 18:00</td>
+                    <td>Disponível</td>
+                </tr>
+                <tr>
+                    <td>Sábados</td>
+                    <td>08:00 - 12:00</td>
+                    <td>Disponível</td>
+                </tr>
+                <tr>
+                    <td>Domingos</td>
+                    <td>---</td>
+                    <td>Apenas Urgências</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="https://wa.me/+55 48 8444-0056 class="btn-whatsapp">
+            Consultar Disponibilidade em Tempo Real
+        </a>
     </section>
-
-    <section class="categoria" id="bolas">
-        <div class="section-header">
-            <h2>Bolas <span>Profissionais</span></h2>
-            <div class="line"></div>
-        </div>
-        <div class="grid-produtos">
-            <script>
-                for(let i=1; i<=9; i++) {
-                    document.write(`
-                    <div class="card">
-                        <div class="img-box"><img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600" alt="Bolas"></div>
-                        <h3>Bola Match Day ${i}</h3>
-                        <a href="https://sirv.com/examples/360-spin/" target="_blank" class="btn-360"><i class="fas fa-sync-alt"></i> GIRAR 360°</a>
-                        <span class="preco">R$ 299,00</span>
-                        <a href="https://wa.me/5548988146267" class="btn-comprar" target="_blank">COMPRAR AGORA</a>
-                    </div>`);
-                }
-            </script>
-        </div>
-    </section>
-
-    <a href="https://wa.me/5548988146267" class="wpp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
 
     <footer>
-        <p style="font-weight: 900; letter-spacing: 2px;">DEXTER ESPORTES &copy; 2026</p>
-        <p style="font-size: 0.9rem; margin: 10px 0;">Florianópolis/SC | (48) 98814-6267</p>
-        <p style="font-size: 0.7rem; color: var(--dourado); text-transform: uppercase;">Dominando o jogo com você.</p>
+        <p>&copy; 2026 Ilha Express Sul - Entregas Ecológicas</p>
+        <p>Siga-nos: @ilhaexpresssul</p>
     </footer>
 
 </body>
